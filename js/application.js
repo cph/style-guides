@@ -16,7 +16,7 @@ hljs.initHighlightingOnLoad();
     // side bar
     $('.bs-docs-sidenav').affix({
       offset: {
-        top: 212,
+        top: 170,
         bottom: 270
       }
     });
