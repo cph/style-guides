@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Style Guides</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.docs.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">Style Guides</a>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <header class="jumbotron subhead" id="overview">
+      <div class="container">
+        <h1>Style Guides</h1>
+        <p class="lead">Coding conventions for Emerging Products</p>
+      </div>
+    </header>
+
+
+
+  <div class="container" style="margin-top: 20px;">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#commits"><i class="icon-chevron-right"></i> Commits</a></li>
+          <li><a href="#code"><i class="icon-chevron-right"></i> Source Code</a></li>
+          <li><a href="#ruby"><i class="icon-chevron-right"></i> Ruby</a></li>
+          <li><a href="#coffeescript"><i class="icon-chevron-right"></i> CoffeeScript</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Commits
+        ================================================== -->
+        <section id="commits">
+          <div class="page-header">
+            <h1>Commits</h1>
+          </div>
+          
+          <p>
+            Release Notes are generated automatically from our commit messages.
+            For this reason our messages <b>start with tags</b> and <b>read like sentences</b>.
+          </p>
+
+
+
+          <h3>Tags</h3>
+
+          <p>Commits always begin with a tag wrapped in square braces:</p>
+<pre><code class="bash"
+>git commit -m "[feature] ..."
+</code></pre>
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Meaning</th>
+                <th>Shown to Customers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="code">[feature]</td>
+                <td>An entirely new feature has been added to the project</td>
+                <td><i class="fa fa-lg fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="code">[improvement]</td>
+                <td>An existing feature has been improved or enhanced</td>
+                <td><i class="fa fa-lg fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="code">[fix]</td>
+                <td>A flaw with an existing feature has been fixed</td>
+                <td><i class="fa fa-lg fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="code">[refactor]</td>
+                <td>The structure of the source code has been changed, but its behavior has not</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="code">[testfix]<br />[cifix]</td>
+                <td>Don't mention this commit in a release</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="code">[skip]</td>
+                <td>Don't mention this commit in a release</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <h3>Messages</h3>
+          
+          <p>
+            Commit messages:
+            <ul>
+              <li>Read like a sentence that assumes the author of the commit as its subject</li>
+              <li>Begin with a past-tense verb</li>
+              <li>Do not end with a period</li>
+            </ul>
+          </p>
+<pre><code class="bash"
+>git commit -m "[fix] Prohibited unauthorized users from reading the launch codes"
+</code></pre>
+
+
+
+          <h3>Tickets</h3>
+          
+          <p>Commit messages that resolve a ticket include the ticket number wrapped in square braces:</p>
+<pre><code class="bash"
+>git commit -m "[improvement] Added a progress indicator for long-running tasks [#63]"
+</code></pre>
+
+
+
+          <h3>Time</h3>
+          
+          <p>Commit messages end with a record of how much time was spent on the commit:</p>
+<pre><code class="bash"
+>git commit -m "[feature] Added the ability to determine if any program halts (13h)"
+git commit -m "[skip] Deleted a few lines of unused code (2m)"
+</code></pre>
+
+
+
+          <h3>Author</h3>
+          
+          <p>When pair-programming, commits should be credited to both pairs:</p>
+<pre><code class="bash"
+>ep pair page lewis
+git commit -m "[feature] Gave users the option to have tacos delivered directly to them (4h)"
+</code></pre>
+
+
+
+      </section>
+
+
+
+
+
+        <!-- Source Code
+        ================================================== -->
+        <section id="code">
+          <div class="page-header">
+            <h1>Source Code</h1>
+            <p>General conventions for source code</p>
+          </div>
+
+
+
+          <h3>White Space</h3>
+          
+          <p>Every file ends with a trailing line break:</p>
+<pre><code class="ruby"
+>class Post
+  # ...
+end
+
+</code></pre>
+          
+          <p>Source code is indented with soft tabs (2 spaces).</p>
+
+
+        </section>
+
+
+
+
+
+        <!-- Ruby
+        ================================================== -->
+        <section id="ruby">
+          <div class="page-header">
+            <h1>Ruby</h1>
+          </div>
+
+
+
+          <h3>Casing</h3>
+          <p>Local variables, instance variables, and methods are snake cased:</p>
+<pre><code class="ruby"
+>@instance_variable = :good
+
+def method_name
+end
+</code></pre>
+
+          <p>Classes and modules are title cased:</p>
+<pre><code class="ruby"
+>module ActiveRecord
+  class Base
+  end
+end
+</code></pre>
+
+          <p>Constants are screaming snake cased:</p>
+<pre><code class="ruby"
+>ST_DEFAULT_MAX_DENSITY = 5
+</code></pre>
+          
+          <p>Nothing is camel cased.</p>
+
+
+
+          <hr class="bs-docs-separator">
+          <h3>References</h3>
+          <p>
+            This guide was adapted from
+            <a href="https://github.com/styleguide/ruby">GitHub's Ruby Styleguide</a>
+          </p>
+
+
+
+          <h3>Indentation</h3>
+          <p>Keywords that control method visibility (<code>private</code>, <code>protected</code>, <code>public</code>) are outdented:</p>
+<pre><code class="ruby"
+>class SomeClass
+
+  def public_method
+    # ...
+  end
+
+private
+  
+  def private_method
+    # ...
+  end
+end  
+</code></pre>
+
+        </section>
+
+
+
+
+
+        <!-- CoffeeScript
+        ================================================== -->
+        <section id="coffeescript">
+          <div class="page-header">
+            <h1>CoffeeScript</h1>
+          </div>
+
+
+
+          <h3>Casing</h3>
+          <p>Local variables, instance variables, and function names are camel cased:</p>
+<pre><code class="coffeescript"
+>localVariable = 'good'
+
+functionName = ->
+  console.log 'hi'
+</code></pre>
+
+          <p>Classes and modules are title cased:</p>
+<pre><code class="ruby"
+>@App ?= {}
+@App.Views ?= {}
+class @App.Views.ClassName
+  # ...
+</code></pre>
+
+          <p>Constants are screaming snake cased:</p>
+<pre><code class="ruby"
+>ST_DEFAULT_MAX_DENSITY = 5
+</code></pre>
+          
+          <p>Nothing is snake cased.</p>
+
+
+
+        </section>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>&nbsp;</p>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
+    <script src="js/application.js"></script>
+
+  </body>
+</html>
