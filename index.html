@@ -211,6 +211,23 @@ end
           </div>
 
 
+
+          <h3>Temporary Variables</h3>
+
+          <p>
+            When using a function like <code>inject</code> or <code>reduce</code>,
+            name the temporary variable for its <em>significance</em> (<code>order_total</code>,
+            <code>query</code>) rather than its role in the calculation (<code>memo</code>,
+            <code>result</code>) or its data type (<code>n</code>, <code>hash</code>):</p>
+<pre><code class="ruby"
+># good
+line_items.inject(0) { |balance, line_item| balance += line_item.amount }
+
+# bad
+line_items.inject(0) { |memo, line_item| memo += line_item.amount }
+</code></pre>
+
+
         </section>
 
 
