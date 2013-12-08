@@ -48,6 +48,7 @@
         <ul class="nav nav-list bs-docs-sidenav">
           <li><a href="#commits"><i class="icon-chevron-right"></i> Commits</a></li>
           <li><a href="#code"><i class="icon-chevron-right"></i> Source Code</a></li>
+          <li><a href="#naming"><i class="icon-chevron-right"></i> Naming</a></li>
           <li><a href="#ruby"><i class="icon-chevron-right"></i> Ruby</a></li>
           <li><a href="#coffeescript"><i class="icon-chevron-right"></i> CoffeeScript</a></li>
           <li><a href="#reference"><i class="icon-chevron-right"></i> Reference</a></li>
@@ -194,6 +195,37 @@ end
 </code></pre>
           
           <p>Source code is indented with soft tabs (2 spaces).</p>
+
+
+        </section>
+
+
+
+
+
+        <!-- Naming
+        ================================================== -->
+        <section id="naming">
+          <div class="page-header">
+            <h1>Naming</h1>
+          </div>
+
+
+
+          <h3>Temporary Variables</h3>
+
+          <p>
+            When using a function like <code>inject</code> or <code>reduce</code>,
+            name the temporary variable for its <em>significance</em> (<code>order_total</code>,
+            <code>query</code>) rather than its role in the calculation (<code>memo</code>,
+            <code>result</code>) or its data type (<code>n</code>, <code>hash</code>):</p>
+<pre><code class="ruby"
+># good
+line_items.inject(0) { |balance, line_item| balance += line_item.amount }
+
+# bad
+line_items.inject(0) { |memo, line_item| memo += line_item.amount }
+</code></pre>
 
 
         </section>
