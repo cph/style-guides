@@ -31,6 +31,13 @@ body > .navbar {
 }
 
 
+section p::before {
+  content: '§';
+  display: inline-block;
+  text-indent: -1em;
+}
+
+
 
 /* Sections
 -------------------------------------------------- */
