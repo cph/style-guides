@@ -193,6 +193,44 @@ end
 </code></pre>
           
           <p>Source code is indented with soft tabs (2 spaces).</p>
+          
+          <p>In general, a single line break is used to separate methods.</p>
+          
+          <p>Multiple line breaks can be used to separate "paragraphs" of related methods:</p>
+<pre><code class="ruby"
+>def render_header
+  # ...
+end
+
+def render_contributions
+  # ...
+end
+
+
+
+def contributions_for(contributor)
+  # ...
+end
+
+def pledges_for(contributor)
+  # ...
+end
+</code></pre>
+
+
+          <p><code>context</code> and <code>describe</code> blocks that begin a group of tests do not have an interior line break:</p>
+<pre><code class="ruby"
+>context "whatever" do
+  should "whatever" do
+    # ...
+  end
+
+  should "whatever b" do
+    # ...
+  end
+end
+</code></pre>
+
 
 
         </section>
