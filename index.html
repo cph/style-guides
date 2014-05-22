@@ -341,6 +341,53 @@ gem 'rails', '~> 4.0.3'
 
 
 
+          <hr class="bs-docs-separator">
+          <h3>Hashes</h3>
+          <p>When choosing to define a hash that spans more than one line:
+            <ul>
+              <li>The first item in a hash lives on the same line as the open brace</li>
+              <li>The end brace lives on the same line as the last item in the hash</li>
+            </ul>
+          </p>
+<pre><code class="ruby"
+># good
+{ foo: "bar",
+  baz: "wam" }
+
+# bad
+{
+  foo: "bar",
+  baz: "wam"
+}
+</code></pre>
+
+          <p>Methods on a hash should chain off it:</p>
+<pre><code class="ruby"
+>
+{ foo: "bar",
+  baz: "wam" }.method.chain
+</code></pre>
+
+          <p>When doing assignment on a multiline hash start the hash on a new line:</p>
+<pre><code class="ruby"
+>
+hash_of_the_century = {
+  foo: "bar",
+  baz: "wam" }
+</code></pre>
+
+          <p>Similarly with method calls:</p>
+<pre><code class="ruby"
+>
+best_method_ever(
+  foo: "bar",
+  baz: "wam" )
+</code></pre>
+
+        </section>
+
+
+
 
 
 
