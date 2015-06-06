@@ -8,7 +8,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
  - Use `snake_case` for methods and variables.
 
- - Use `CamelCase` for classes and modules. (Keep acronyms like HTTP, RFC, and XML uppercase.)
+ - Use `TitleCase` for classes and modules. (Keep acronyms like HTTP, RFC, and XML uppercase.)
 
  - Use `SCREAMING_SNAKE_CASE` for other constants.
 
