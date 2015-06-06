@@ -32,6 +32,18 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
     end
     ```
 
+ - Use blank lines (but no more than one) _within_ methods to separate logical paragraphs:
+
+    ```ruby
+    def some_method
+      data = initialize(options)
+    
+      data.manipulate!
+    
+      data.result
+    end
+    ```
+
  - `context` and `describe` blocks that begin a group of tests do not need an interior line break
 
     ```ruby
