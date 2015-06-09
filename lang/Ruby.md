@@ -370,6 +370,18 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     remove_member user, skip_membership_check: true
     ```
 
+ - Use `Regexp.union` to create a regular expression from an array of terms.
+
+    ```ruby
+    words = %w(hey hi hello yo)
+    
+    # bad
+    regexp = Regexp.new(words.join("|"))
+    
+    # good
+    regexp = Regexp.union(words)
+    ```
+
 
 
 ## Blocks
