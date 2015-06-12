@@ -3,6 +3,7 @@
 General rules follow; but we also have language-specific guides for [Ruby](/lang/Ruby.md), [CoffeeScript](/lang/CoffeeScript.md), and [HTML/CSS](/lang/CSS.md).
 
 
+
 ## White Space
 
  - Use soft-tabs with a two-space indent
@@ -57,6 +58,8 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
       end
     end
     ```
+
+
 
 ## Commits
 

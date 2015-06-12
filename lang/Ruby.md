@@ -104,6 +104,16 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     end
     ```
 
+ - `rescue` blocks should be outdented from the method block
+
+    ```ruby
+    def some_method_with_rescue
+      do_something_that_could_throw_exception!
+    rescue
+      i_did_something_funny
+    end
+    ```
+
 
 
 ## Parentheses
