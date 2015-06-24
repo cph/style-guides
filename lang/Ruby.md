@@ -29,7 +29,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     [1, 2, 3].each { |e| puts e }
     ```
 
- - Don't put spaces after `(`, `[` or before `]`, `)`.
+ - Don't put spaces within `(...)` or `[...]`.
 
     ```ruby
     some(arg).other
@@ -42,7 +42,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     !array.include?(element)
     ```
 
- - Don't put spaces between a method name and `(`.
+ - Don't put spaces before `(` when calling a method.
 
     ```ruby
     # bad
@@ -52,7 +52,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     f(3 + 2) + 1
     ```
 
- - Don't put spaces around the `=` operator when assigning default values to method parameters:
+ - Don't put spaces around the `=` operator when assigning default values to method parameters.
 
     ```ruby
     # bad
@@ -146,45 +146,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
 
 
-## Rubyisms
-
- - Never use `for`, unless you know exactly why. Use iterators (e.g. `each`) instead.
- > `for` is implemented in terms of `each` (so you're adding a level of indirection), but with a twist - `for` doesn't introduce a new scope (unlike `each`) and variables defined in its block will be visible outside it.
-
-    ```ruby
-    # bad
-    for elem in arr do
-      puts elem
-    end
-    
-    # good
-    arr.each do |elem|
-      puts elem
-    end
-    ```
-
- - Prefer string interpolation to concatenation:
-
-    ```ruby
-    # bad
-    email_with_name = user.name + " <" + user.email + ">"
-    
-    # good
-    email_with_name = "#{user.name} <#{user.email}>"
-    ```
-
- - Use double-quoted strings.
- > Why? Interpolation and escaped characters will always work without a delimiter change, and `'` is a lot more common than `"` in string literals.
-
-    ```ruby
-    # bad
-    name = 'Bozhidar'
-    
-    # good
-    name = "Bozhidar"
-    ```
-
- - Use `&&` and `||`, not `and` and `or`.
+## Chaff
 
  - Avoid `return` where not required. However, a great place to use an explicit `return` is with an `if/unless` in the postfix position as a guard clause.
 
@@ -235,59 +197,29 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     end
     ```
 
- - Prefer symbols to strings as hash keys (and prefer the JSON-style syntax over the hashrocket syntax).
+
+
+## Strings
+
+ - Prefer string interpolation to concatenation:
 
     ```ruby
-    # ok
-    hash = { "one" => 1, "two" => 2, "three" => 3 }
+    # bad
+    email_with_name = user.name + " <" + user.email + ">"
     
-    # ok
-    hash = { :one => 1, :two => 2, :three => 3 }
-    
-    # best
-    hash = { one: 1, two: 2, three: 3 }
+    # good
+    email_with_name = "#{user.name} <#{user.email}>"
     ```
 
- - Use `%w` freely for arrays of short strings.
+ - Use double-quoted strings.
+ > Why? Interpolation and escaped characters will always work without a delimiter change, and `'` is a lot more common than `"` in string literals.
 
     ```ruby
-    STATES = %w(draft open closed)
-    ```
-
- - Use `x` modifier for complex regular expressions. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
-
-    ```ruby
-    regexp = %r{
-      start         # some text
-      \s            # white space char
-      (group)       # first group
-      (?:alt1|alt2) # some alternation
-      end
-    }x
-    ```
-
- - Keyword arguments are recommended but not required when a method's arguments may otherwise be opaque or non-obvious when called. Additionally, prefer them over the old "Hash as pseudo-named args" style from pre-2.0 ruby.
-
-   So instead of this:
-
-    ```ruby
-    def remove_member(user, skip_membership_check=false)
-      # ...
-    end
+    # bad
+    name = 'Bozhidar'
     
-    # Elsewhere: what does true mean here?
-    remove_member(user, true)
-    ```
-   
-   Do this, which is much clearer.
-   
-    ```ruby
-    def remove_member(user, skip_membership_check: false)
-      # ...
-    end
-    
-    # Elsewhere, now with more clarity:
-    remove_member user, skip_membership_check: true
+    # good
+    name = "Bozhidar"
     ```
 
 
@@ -360,6 +292,82 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     else
       puts "failure"
     end
+    ```
+
+
+
+## Idiomatic Ruby
+
+ - Never use `for`, unless you know exactly why. Use iterators (e.g. `each`) instead.
+ > `for` is implemented in terms of `each` (so you're adding a level of indirection), but with a twist - `for` doesn't introduce a new scope (unlike `each`) and variables defined in its block will be visible outside it.
+
+    ```ruby
+    # bad
+    for elem in arr do
+      puts elem
+    end
+    
+    # good
+    arr.each do |elem|
+      puts elem
+    end
+    ```
+
+ - Use `&&` and `||`, not `and` and `or`.
+
+ - Prefer symbols to strings as hash keys (and prefer the JSON-style syntax over the hashrocket syntax).
+
+    ```ruby
+    # ok
+    hash = { "one" => 1, "two" => 2, "three" => 3 }
+    
+    # ok
+    hash = { :one => 1, :two => 2, :three => 3 }
+    
+    # best
+    hash = { one: 1, two: 2, three: 3 }
+    ```
+
+ - Use `%w` freely for arrays of short strings.
+
+    ```ruby
+    STATES = %w(draft open closed)
+    ```
+
+ - Use `x` modifier for complex regular expressions. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
+
+    ```ruby
+    regexp = %r{
+      start         # some text
+      \s            # white space char
+      (group)       # first group
+      (?:alt1|alt2) # some alternation
+      end
+    }x
+    ```
+
+ - Keyword arguments are recommended but not required when a method's arguments may otherwise be opaque or non-obvious when called. Additionally, prefer them over the old "Hash as pseudo-named args" style from pre-2.0 ruby.
+
+   So instead of this:
+
+    ```ruby
+    def remove_member(user, skip_membership_check=false)
+      # ...
+    end
+    
+    # Elsewhere: what does true mean here?
+    remove_member(user, true)
+    ```
+   
+   Do this, which is much clearer.
+   
+    ```ruby
+    def remove_member(user, skip_membership_check: false)
+      # ...
+    end
+    
+    # Elsewhere, now with more clarity:
+    remove_member user, skip_membership_check: true
     ```
 
 
