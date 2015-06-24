@@ -114,6 +114,17 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     end
     ```
 
+ - When method calls are chained, put each on a line and indent with two spaces.
+
+    ```ruby
+    # good
+    [1, 2, 3]
+      .map { |x| x * x }
+      .concat([10, 11])
+      .select { |x| x < 11 }
+      .reduce { |x, y| x + y }
+    ```
+
 
 
 ## Parentheses
