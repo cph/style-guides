@@ -7,10 +7,10 @@
  - Use `camelCase` for local variables, instance variables, and function names
 
     ```coffee
-    localVariable = 'good'
+    localVariable = "good"
 
     functionName = ->
-      console.log 'hi'
+      console.log "hi"
     ```
  
  - Use `TitleCase` for classes and modules
@@ -104,22 +104,22 @@
     ```coffee
     # bad
     foo = [
-      'some',
-      'string',
-      'values'
+      "some",
+      "string",
+      "values"
     ]
     bar:
-      label: 'test',
+      label: "test",
       value: 87
     
     # good
     foo = [
-      'some'
-      'string'
-      'values'
+      "some"
+      "string"
+      "values"
     ]
     bar:
-      label: 'test'
+      label: "test"
       value: 87
     ```
 
@@ -257,12 +257,12 @@
 
     ```coffee
     # bad
-    $el.on 'click', ->
+    $el.on "click", ->
       $.get(url).then =>
         console.log "this (@) is never used"
     
     # good
-    $el.on 'click', ->
+    $el.on "click", ->
       $.get(url).then ->
         console.log "this (@) is never used"
     ```
