@@ -7,7 +7,7 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
 ## White Space
 
  - Use soft-tabs with a two-space indent
- 
+
  - End every file with a blank newline
  > Why? This reduces diff-noise when a change is made to the last LOC in a file
 
@@ -17,17 +17,17 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
     def render_header
       # ...
     end
-   
+
     def render_contributions
       # ...
     end
-   
-   
-   
+
+
+
     def contributions_for(contributor)
       # ...
     end
-   
+
     def pledges_for(contributor)
       # ...
     end
@@ -38,9 +38,9 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
     ```ruby
     def some_method
       data = initialize(options)
-    
+
       data.manipulate!
-    
+
       data.result
     end
     ```
@@ -52,7 +52,7 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
       should "whatever" do
         # ...
       end
-   
+
       should "whatever b" do
         # ...
       end
