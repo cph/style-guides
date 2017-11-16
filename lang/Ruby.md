@@ -47,7 +47,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # bad
     f (3 + 2) + 1
-    
+
     # good
     f(3 + 2) + 1
     ```
@@ -59,7 +59,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     def some_method(arg1 = :default, arg2 = nil, arg3 = [])
       # do something...
     end
-    
+
     # good
     def some_method(arg1=:default, arg2=nil, arg3=[])
       # do something...
@@ -86,21 +86,22 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```
 
  - Indent `public/protected/private` keywords as deep as `class`.
- > Why? These keywords apply — not just to the next method — but to all subsequent ones. They need to stand out from the level of the `def` statements.
+
+    > Why? These keywords apply — not just to the next method — but to all subsequent ones. They need to stand out from the level of the `def` statements.
 
     ```ruby
     class SomeClass
-      
+
       def public_method
         # ...
       end
-      
+
     private
-      
+
       def private_method
         # ...
       end
-      
+
     end
     ```
 
@@ -148,7 +149,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     if (x > 10)
       # ...
     end
-    
+
     # good
     if x > 10
       # ...
@@ -160,7 +161,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # bad
     f (3 + 2) + 1
-    
+
     # good
     f((3 + 2) + 1)
     ```
@@ -176,12 +177,12 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     def size_of(list)
       return list.size
     end
-    
+
     # good
     def size_of(list)
       list.size
     end
-    
+
     # good
     def size_of(list)
       return 0 unless list.respond_to?(:size)
@@ -194,27 +195,27 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     class Person
       attr_accessor :name, :address
-      
+
       # bad
       def mailing_label
         [self.name, self.address].join "\n"
       end
-      
+
       # good
       def mailing_label
         [name, address].join "\n"
       end
-      
+
       # bad (declares a new local variable)
       def move_to(new_address)
         address = new_address
       end
-      
+
       # good
       def move_to(new_address)
         self.address = new_address
       end
-      
+
     end
     ```
 
@@ -227,18 +228,19 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # bad
     email_with_name = user.name + " <" + user.email + ">"
-    
+
     # good
     email_with_name = "#{user.name} <#{user.email}>"
     ```
 
  - Use double-quoted strings.
- > Why? Interpolation and escaped characters will always work without a delimiter change, and `'` is a lot more common than `"` in string literals.
+
+    > Why? Interpolation and escaped characters will always work without a delimiter change, and `'` is a lot more common than `"` in string literals.
 
     ```ruby
     # bad
     name = 'Bozhidar'
-    
+
     # good
     name = "Bozhidar"
     ```
@@ -254,7 +256,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     if some_condition then
       # ...
     end
-    
+
     # good
     if some_condition
       # ...
@@ -266,7 +268,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # bad
     result = if some_condition then something else something_else end
-    
+
     # good
     result = some_condition ? something : something_else
     ```
@@ -276,7 +278,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # bad
     some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
-    
+
     # good
     if some_condition
       nested_condition ? nested_something : nested_something_else
@@ -292,7 +294,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     if some_condition
       do_something
     end
-   
+
     # good
     do_something if some_condition
     ```
@@ -306,7 +308,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     else
       puts "success"
     end
-    
+
     # good
     if success?
       puts "success"
@@ -320,14 +322,15 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 ## Idiomatic Ruby
 
  - Never use `for`, unless you know exactly why. Use iterators (e.g. `each`) instead.
- > `for` is implemented in terms of `each` (so you're adding a level of indirection), but with a twist - `for` doesn't introduce a new scope (unlike `each`) and variables defined in its block will be visible outside it.
+
+    > `for` is implemented in terms of `each` (so you're adding a level of indirection), but with a twist - `for` doesn't introduce a new scope (unlike `each`) and variables defined in its block will be visible outside it.
 
     ```ruby
     # bad
     for elem in arr do
       puts elem
     end
-    
+
     # good
     arr.each do |elem|
       puts elem
@@ -341,10 +344,10 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # ok
     hash = { "one" => 1, "two" => 2, "three" => 3 }
-    
+
     # ok
     hash = { :one => 1, :two => 2, :three => 3 }
-    
+
     # best
     hash = { one: 1, two: 2, three: 3 }
     ```
@@ -375,18 +378,18 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     def remove_member(user, skip_membership_check=false)
       # ...
     end
-    
+
     # Elsewhere: what does true mean here?
     remove_member(user, true)
     ```
-   
+
    Do this, which is much clearer.
-   
+
     ```ruby
     def remove_member(user, skip_membership_check: false)
       # ...
     end
-    
+
     # Elsewhere, now with more clarity:
     remove_member user, skip_membership_check: true
     ```
@@ -395,10 +398,10 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
     ```ruby
     words = %w(hey hi hello yo)
-    
+
     # bad
     regexp = Regexp.new(words.join("|"))
-    
+
     # good
     regexp = Regexp.union(words)
     ```
@@ -418,7 +421,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     # good
     names.select { |name| name.start_with?("S") }
     ```
- 
+
  - Prefer single-line `{...}` blocks when several blocks are chained.
 
     ```ruby
@@ -426,7 +429,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     names.select do |name|
       name.start_with?("S")
     end.map { |name| name.upcase }
-    
+
     # good
     names
       .select { |name| name.start_with?("S") }
@@ -460,7 +463,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     ```ruby
     # ok
     names = results.map { |name, age, favorite_marvel_movie| name }
-    
+
     # better
     names = results.map { |name, _, _| name }
     ```
@@ -470,35 +473,38 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 ## Dragons
 
  - Don't use the `===` (threequals) operator to check types.
- > Why? `===` is mostly an implementation detail to support Ruby features like `case`, and it's not commutative. For example, `String === "hi"` is true and `"hi" === String` is false. Instead, use `is_a?` or `kind_of?` if you must. Refactoring is even better. It's worth looking hard at any code that explicitly checks types.
+
+    > Why? `===` is mostly an implementation detail to support Ruby features like `case`, and it's not commutative. For example, `String === "hi"` is true and `"hi" === String` is false. Instead, use `is_a?` or `kind_of?` if you must. Refactoring is even better. It's worth looking hard at any code that explicitly checks types.
 
  - Avoid the usage of class (`@@`) variables. (Prefer class instance variables)
- > Why? All the classes in a class hierarchy actually share one class variable. This often has unintended results.
+
+    > Why? All the classes in a class hierarchy actually share one class variable. This often has unintended results.
 
     ```ruby
     class Parent
       @@class_var = "parent"
-    
+
       def self.print_class_var
         puts @@class_var
       end
     end
-    
+
     class Child < Parent
       @@class_var = "child"
     end
-    
+
     Parent.print_class_var # => will print "child"
     ```
 
  - Prefer `<<` to concatenate strings.
- > Why? `String#<<` mutates the string instance in-place and is always faster than `String#+`, which creates a bunch of new string objects.
+
+    > Why? `String#<<` mutates the string instance in-place and is always faster than `String#+`, which creates a bunch of new string objects.
 
     ```ruby
     # good and also fast
     html = ""
     html << "<h1>Page title</h1>"
-    
+
     paragraphs.each do |paragraph|
       html << "<p>#{paragraph}</p>"
     end
@@ -511,5 +517,3 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     string[/^username$/]   # matches
     string[/\Ausername\z/] # don't match
     ```
-
-
