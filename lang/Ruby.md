@@ -66,6 +66,32 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     end
     ```
 
+ - Put spaces within the definition of a class or module; but snuggle modules that act as namespaces, `include`s, and (optionally) `attr_accessor`, `attr_reader`, and `attr_writer`:
+
+    ```ruby
+    module Namespace
+      class SomeClass
+        include SomeConcerns
+
+        def initialize
+        end
+
+      end
+    end
+    ```
+
+    ```ruby
+    class TextContainer
+      attr_reader :text
+
+      def initialize(text)
+        @text = text
+      end
+
+    end
+    ```
+
+
 
 
 ## Indentation
