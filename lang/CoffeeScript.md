@@ -208,16 +208,20 @@
       alert "failure"
     ```
 
- - Don't use `if boolean == false` over `if not boolean`
+ - Don't use `if boolean is false` over `if not boolean`
  
    ```coffee
    # nope
-   if false is false
-     ...
+   if coffeeScriptIsDead is false
+     keepDancing()
+   else
+     weAreInTrouble()
    
    # yep
-   if !false
-     ...
+   if not coffeeScriptIsDead
+     keepDancing()
+   else
+     weAreInTrouble()
    ```
 
 
