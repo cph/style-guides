@@ -208,6 +208,17 @@
       alert "failure"
     ```
 
+ - Don't use `if boolean == false` over `if not boolean`
+ 
+   ```coffee
+   # nope
+   if false is false
+     ...
+   
+   # yep
+   if !false
+     ...
+   ```
 
 
 ## Idiomatic CoffeeScript
