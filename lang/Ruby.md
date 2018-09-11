@@ -403,6 +403,17 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     regexp = Regexp.union(words)
     ```
 
+ - Treat empty methods like other methods
+
+    ```ruby
+    # bad
+    def example; end
+    
+    # good
+    def example
+    end
+    ```
+
 
 
 ## Blocks
