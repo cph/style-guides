@@ -208,6 +208,21 @@
       alert "failure"
     ```
 
+ - Don't use `if boolean is false` over `if not boolean`
+ 
+   ```coffee
+   # nope
+   if coffeeScriptIsDead is false
+     keepDancing()
+   else
+     weAreInTrouble()
+   
+   # yep
+   if not coffeeScriptIsDead
+     keepDancing()
+   else
+     weAreInTrouble()
+   ```
 
 
 ## Idiomatic CoffeeScript
