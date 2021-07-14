@@ -8,7 +8,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
  - Use `snake_case` for methods and variables.
 
- - Use `TitleCase` for classes and modules. (Keep acronyms like HTTP, RFC, and XML uppercase.)
+ - Use `TitleCase` for classes and modules.<sup>&dagger;</sup>
 
  - Use `SCREAMING_SNAKE_CASE` for other constants.
 
@@ -16,24 +16,23 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
  - The names of potentially "dangerous" methods (i.e. methods that modify `self` or the arguments, `exit!`, etc.) should end with an exclamation mark. Bang methods should only exist if a non-bang method exists. ([More on this](http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist)).
 
-
+<sup>&dagger;</sup>This includes acronymns like HTML, XML, and RTC, which then become Html, Xml, and Rtc. Why? Rails 6 introduced Zeitwerk as its autoloader, which starts with the names of files and looks for appropriately-named constants to be defined within them. So `html_parser.rb` is inferred to define the constant `HtmlParser`. This is a departure from pre-Rails 6 behavior ... and previous versions of our style guide!
 
 ## Spaces
 
- - Use spaces around operators, after commas, colons, and semicolons, around `{` and before `}`.
+ - Use spaces around operators, after commas, colons, and semicolons, around `{` and `[` and before `}` and `]`.
 
     ```ruby
     sum = 1 + 2
     a, b = 1, 2
     1 > 2 ? false : true; puts "Hi"
-    [1, 2, 3].each { |e| puts e }
+    [ 1, 2, 3 ].each { |e| puts e }
     ```
 
- - Don't put spaces within `(...)` or `[...]`.
+ - Don't put spaces within `(...)`.
 
     ```ruby
     some(arg).other
-    [1, 2, 3].length
     ```
 
  - Don't put spaces after `!`.
@@ -145,9 +144,9 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
     ```ruby
     # good
-    [1, 2, 3]
+    [ 1, 2, 3 ]
       .map { |x| x * x }
-      .concat([10, 11])
+      .concat([ 10, 11 ])
       .select { |x| x < 11 }
       .reduce { |x, y| x + y }
     ```
@@ -378,10 +377,11 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
     hash = { one: 1, two: 2, three: 3 }
     ```
 
- - Use `%w` freely for arrays of short strings.
+ - Use `%w` and `%i` freely for arrays of short strings and symbols, respectively.
 
     ```ruby
-    STATES = %w(draft open closed)
+    STATES = %w{ draft open closed }
+    KEYS = %i{ here there everywhere }
     ```
 
  - Use `x` modifier for complex regular expressions. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
@@ -423,7 +423,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
  - Use `Regexp.union` to create a regular expression from an array of terms.
 
     ```ruby
-    words = %w(hey hi hello yo)
+    words = %w{ hey hi hello yo }
 
     # bad
     regexp = Regexp.new(words.join("|"))
@@ -447,7 +447,7 @@ We've adapted this from [GitHub's Ruby style guide](https://github.com/styleguid
 
 ## Blocks
 
- - Prefer `{...}` over `do...end` for single-line blocks.
+ - Prefer `{...}` over `do...end` for single-line blocks and blocks that return a value
 
     ```ruby
     # bad
