@@ -72,7 +72,7 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
 
  - Begin commit messages with a tag in square brackets.
 
-    > Why? Houston uses these when generating release notes.
+    > Why? The EP Toolchain uses these when generating release notes.
     > Commits tagged `[feature]`, `[improvement]`, and `[fix]` will all be turned into release notes that we show to customers. Commits with other tags will only be seen by developers.
 
     ```bash
@@ -90,7 +90,7 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
 
  - Write commit messages that assume the committer as the subject, have a past-tense verb, and describe your change in customers' terms.
 
-    > Why? Houston generates release notes from commit messages.
+    > Why? The EP Toolchain generates release notes from commit messages.
 
     ```bash
     # bad
@@ -129,6 +129,6 @@ General rules follow; but we also have language-specific guides for [Ruby](/lang
  - When pair-programming, use `ep pair` to change your git identity to the combined identities of those pairing. Use `ep unpair` to go back to committing as only yourself.
 
     ```bash
-    ep pair ben chase matt
+    ep pair luke matt gary
     git commit -m "[feature] Added the option to have tacos delivered to your door (4h)"
     ```
